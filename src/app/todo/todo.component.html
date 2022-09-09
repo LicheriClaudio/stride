@@ -1,0 +1,32 @@
+  <div *ngIf="switch==true" id="Modal" #modal></div>
+<div id="container">
+
+
+
+    <h1 class="h1">Titolo</h1>
+
+    <div   *ngFor="let ele of lista" class="to-do" >
+      <img src="../../assets/Bin.svg" class="remove" (click)="remove(ele)" alt="">
+
+      <input style="font-size:5rem ;" id="checkbox" type="checkbox" (click)="listaCompleted(ele)"    [checked]="ele.completed == true" (change)="ele.completed = !ele.completed">
+      <label [ngStyle]="ele.completed && {'Text-Decoration-Line': 'line-through'}" class="lbl" for="checkbox">{{ele.title}}</label>
+
+    </div>
+
+
+
+
+  </div>
+  <button class="bottone" (click)="changeModel()" style="background-color: #7167b2;"><img style="background-color:transparent; filter: invert(100%);" src="../../assets/Adds.svg" alt="">Nuova voce</button>
+
+  <div *ngIf=" switch === true" class="ListaInserita">
+  <div class="inseriscilista">
+    <textarea [(ngModel)]="iniz"  name="addvoce"  class="form" id="ListaInserita" placeholder="Inserisci Voce"></textarea><!-- <input  [(ngModel)]="iniz" #lista   type="text" class="form" id="ListaInserita" placeholder="prima voce"> -->
+
+    <button  (click)=" listaScritta()"  type="button"  class="btn btn-success form-control aggiungi">Salva</button>
+  </div>
+</div>
+
+
+
+
